@@ -133,3 +133,32 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize - show first testimonial
     showTestimonial(0);
 });
+
+// Mobile detection and adjustments
+function checkMobile() {
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    
+    if (isMobile) {
+        // Disable hover effects on mobile
+        document.body.classList.add('mobile-device');
+        
+        // Adjust any mobile-specific behaviors
+    } else {
+        document.body.classList.remove('mobile-device');
+    }
+}
+
+// Run on load and resize
+window.addEventListener('load', checkMobile);
+window.addEventListener('resize', checkMobile);
+
+// Better touch feedback
+document.querySelectorAll('button, a, [role="button"]').forEach(element => {
+    element.addEventListener('touchstart', function() {
+        this.classList.add('touch-active');
+    });
+    
+    element.addEventListener('touchend', function() {
+        this.classList.remove('touch-active');
+    });
+});

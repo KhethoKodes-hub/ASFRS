@@ -1156,3 +1156,210 @@ a:hover {
     background-color: var(--light-text);
     color: var(--secondary-color);
 }
+
+
+/* Tablet and Below */
+@media (max-width: 992px) {
+    /* General adjustments */
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    /* About Page */
+    .about-grid {
+        flex-direction: column;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Services Page */
+    .service-detail, 
+    .service-detail.reverse {
+        flex-direction: column;
+    }
+
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Contact Page */
+    .contact-container {
+        flex-direction: column;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    /* Header adjustments */
+    .main-nav {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 80%;
+        height: calc(100vh - 80px);
+        background-color: var(--primary-color);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.5s ease;
+        z-index: 999;
+    }
+
+    .main-nav.active {
+        left: 0;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .main-nav li {
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .main-nav a {
+        color: var(--light-text);
+        font-size: 1.2rem;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        color: var(--primary-color);
+        font-size: 1.5rem;
+    }
+
+    .main-header.scrolled .mobile-menu-btn {
+        color: var(--light-text);
+    }
+
+    /* Page Hero adjustments */
+    .page-hero {
+        height: 50vh;
+        min-height: 300px;
+    }
+
+    .page-hero h1 {
+        font-size: 2rem;
+    }
+
+    .page-hero p {
+        font-size: 1rem;
+    }
+
+    /* About Page */
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Services Page */
+    .service-detail {
+        margin: 40px 0;
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-card.featured {
+        transform: none;
+    }
+
+    /* Contact Page */
+    .contact-form-container {
+        padding: 20px;
+    }
+
+    .contact-info-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-icon {
+        margin-bottom: 15px;
+    }
+
+    .map-container iframe {
+        height: 300px;
+    }
+
+    /* CTA Section */
+    .cta-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .cta-section p {
+        font-size: 1rem;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    /* General adjustments */
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .btn, .btn-outline {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Page Hero */
+    .page-hero h1 {
+        font-size: 1.6rem;
+    }
+
+    /* About Page */
+    .about-text h2 {
+        font-size: 1.4rem;
+    }
+
+    /* Services Page */
+    .service-content h2 {
+        font-size: 1.4rem;
+    }
+
+    /* Contact Page */
+    .faq-question {
+        font-size: 1rem;
+        padding: 15px;
+    }
+}
+
+/* Touch feedback for mobile */
+.touch-active {
+    transform: scale(0.98);
+    opacity: 0.9;
+}
+
+/* Disable hover effects on mobile */
+.mobile-device .service-card:hover,
+.mobile-device .value-card:hover,
+.mobile-device .team-member:hover {
+    transform: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Larger tap targets */
+@media (max-width: 768px) {
+    .btn, .btn-outline {
+        padding: 15px 25px;
+    }
+    
+    .main-nav a {
+        padding: 15px;
+        display: block;
+    }
+    
+    input, select, textarea {
+        font-size: 16px; /* Prevent zooming on focus */
+    }
+}
