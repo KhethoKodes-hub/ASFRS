@@ -162,3 +162,52 @@ document.querySelectorAll('button, a, [role="button"]').forEach(element => {
         this.classList.remove('touch-active');
     });
 });
+
+
+// Mobile Menu Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mainNav = document.querySelector('.main-nav');
+    const body = document.body;
+
+    mobileMenuBtn.addEventListener('click', function() {
+        // Toggle menu visibility
+        mainNav.classList.toggle('active');
+        body.classList.toggle('menu-open');
+        
+        // Toggle icon
+        const icon = this.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+    });
+
+    // Close menu when clicking on links
+    document.querySelectorAll('.main-nav a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (mainNav.classList.contains('active')) {
+                mainNav.classList.remove('active');
+                body.classList.remove('menu-open');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            }
+        });
+    });
+
+    // Testimonial slider code (keep your existing slider code)
+    // ...
+});
+
+// Handle window resize
+window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+        // Reset mobile menu if window is resized larger
+        const mainNav = document.querySelector('.main-nav');
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const body = document.body;
+        
+        mainNav.classList.remove('active');
+        body.classList.remove('menu-open');
+        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+    }
+});
